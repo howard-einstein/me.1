@@ -29,6 +29,11 @@ body {
 .nav-link { color: var(--ink); text-decoration: none; }
 .nav-link span, .arrow { font-size: 18px; margin-left: 8px; transition: transform .3s ease; display: inline-block; }
 .nav-link:hover span { transform: translate(3px, -3px); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.social-link, .nav-mail { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); text-decoration: none; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.social-link:hover, .nav-mail:hover { transform: translateY(-2px); background: var(--acid); border-color: transparent; }
+.social-link svg { width: 16px; height: 16px; fill: currentColor; }
+.nav-mail { font-size: 16px; }
 .hero { min-height: 690px; display: grid; grid-template-columns: 1fr .82fr; align-items: center; gap: 8vw; padding: 6vw 0 8vw; }
 .eyebrow { color: var(--muted); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .13em; margin: 0 0 34px; }
 h1 { font-size: clamp(72px, 10.5vw, 156px); line-height: .82; letter-spacing: -.085em; margin: 0; font-weight: 600; }
@@ -73,6 +78,9 @@ h2 span { color: var(--coral); }
 @media (max-width: 700px) {
   .page-shell { padding: 0 24px; }
   .topbar { height: 78px; } .availability { display: none; }
+  .nav-actions { gap: 8px; }
+  .social-link, .nav-mail { width: 28px; height: 28px; }
+  .social-link svg { width: 14px; height: 14px; }
   .hero { display: flex; flex-direction: column; align-items: stretch; gap: 70px; padding: 70px 0 110px; }
   h1 { font-size: clamp(66px, 20vw, 110px); }
   .intro { margin: 31px 0 42px; }
