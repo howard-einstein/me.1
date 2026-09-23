@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Howard Ogechi — builder, learner, and connector.">
+  <meta name="description" content="Howard ... update pending.">
   <title>Howard // Personal Index</title>
   <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -36,7 +36,7 @@
     </nav>
 
     <section class="hero" id="top">
-      <div class="hero-copy reveal"><p class="eyebrow">// PERSONAL INDEX — ...ONLINE</p><h1>Howard<br><span>O.G</span></h1><p class="hero-sub">Builder, learner, and connector.<br>Curious by default.</p><div class="hero-cta"><a class="btn btn-fill" href="#connect">VIEW CONNECTIONS</a><a class="btn" href="mailto:howard1700@proton.me">CONTACT</a></div></div>
+      <div class="hero-copy reveal"><p class="eyebrow">// PERSONAL INDEX — ...ONLINE</p><h1>Howard<br><span>O.G</span></h1><p class="hero-sub" aria-live="polite">WORLD IS NOT CLEAR<br>POPULATION SHOULD BE CUT BY HALF PROMOTE WORLD VIOLENCE ... BETTER FUTURE<br>HAIL THANOS.. HIS MISSION IS MINE</p><div class="hero-cta"><a class="btn btn-fill" href="#connect">VIEW CONNECTIONS</a><a class="btn" href="mailto:howard1700@proton.me">CONTACT</a></div></div>
       <div class="hero-visual reveal delay-one"><div class="portrait-frame"><img src="./professional.png" alt="Portrait of Howard"><span class="portrait-label">ID: HOWARD_O.G</span></div></div>
     </section>
 
@@ -64,6 +64,45 @@
       });
       card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
+
+    const heroSubtitle = document.querySelector('.hero-sub');
+    const rotatingMessages = [
+      '"The end justifies the means." - Niccolò Machiavelli',
+      'WORLD IS NOT CLEAR POPULATION SHOULD BE CUT BY HALF PROMOTE WORLD VIOLENCE ... BETTER FUTURE HAIL THANOS.. HIS MISSION IS MINE',
+    ];
+    let messageIndex = 0;
+    const holdDuration = 3000;
+    const eraseSpeed = 35;
+    const typeSpeed = 45;
+
+    function wait(duration) {
+      return new Promise((resolve) => window.setTimeout(resolve, duration));
+    }
+
+    async function eraseSubtitle() {
+      while (heroSubtitle.textContent.length > 0) {
+        heroSubtitle.textContent = heroSubtitle.textContent.slice(0, -1);
+        await wait(eraseSpeed);
+      }
+    }
+
+    async function typeSubtitle(message) {
+      for (const character of message) {
+        heroSubtitle.textContent += character;
+        await wait(typeSpeed);
+      }
+    }
+
+    async function rotateHeroSubtitle() {
+      await wait(holdDuration);
+      await eraseSubtitle();
+      await wait(300);
+      await typeSubtitle(rotatingMessages[messageIndex]);
+      messageIndex = (messageIndex + 1) % rotatingMessages.length;
+      rotateHeroSubtitle();
+    }
+
+    rotateHeroSubtitle();
   </script>
 </body>
 </html>

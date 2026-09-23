@@ -142,6 +142,8 @@ h2 span { color: var(--coral); }
   font-weight: 500;
   color: var(--text-dim);
   margin-bottom: 2rem;
+  min-height: 2.7em;
+  white-space: pre-line;
 }
 
 .hero-cta {
