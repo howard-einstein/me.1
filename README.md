@@ -50,7 +50,7 @@ Then open http://localhost:8000 in your browser.
 
 - GitHub: https://github.com/howard-einstein
 - Website: https://howard-einstein.github.io/me.1/
-- Email: hello@example.com
+- Email: howard1700@proton.me
 
 ## License
 
