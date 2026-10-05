@@ -249,6 +249,19 @@ h2 span { color: var(--coral); }
   border-bottom: 1px solid var(--border);
 }
 
+.hi_lol {
+  color: var(--cyan);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.hi_lol:hover {
+  text-decoration: indent;
+  font-family:Arial, Helvetica, sans-serif;
+  text-decoration: bold;
+  letter-spacing: 0.12em;
+}
+
 .dot {
   width: 10px;
   height: 10px;
