@@ -123,10 +123,30 @@ h1 em { color: var(--coral); font-style: normal; }
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.slide-one { background: linear-gradient(180deg, #10212c 0%, #0d1b29 100%); }
-.slide-two { background: linear-gradient(180deg, #1a2e3b 0%, #0d1b29 100%); }
-.slide-three { background: linear-gradient(180deg, #11273c 0%, #0d1b29 100%); }
-.slide-four { background: linear-gradient(180deg, #1c2d40 0%, #0d1b29 100%); }
+.slide-one {
+  background-image: url("skills_pic/scanner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide-two {
+  background-image: url("skills_pic/hwrdtop.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide-three {
+  background-image: url("skills_pic/voice%20assistant.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide-four {
+  background-image: url("skills_pic/Arduino.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .slide-visual::before,
 .slide-visual::after {
