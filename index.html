@@ -158,68 +158,89 @@
       <section class="skills-section" id="skills">
         <div class="section-heading reveal">
           <p class="eyebrow">// 01 — SKILLS</p>
-          <h2>Building tools,<br /><span>systems</span> and hardware.</h2>
         </div>
-        <div class="skills-grid">
-          <a
-            class="skill-card"
-            href="https://github.com/howard-einstein/arduino"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="skill-tag">Arduino</span>
-            <h3>Arduino</h3>
-            <p>
-              Embedded experiments, sensor interfaces, and rapid hardware
-              prototypes focused on controls and automation.
-            </p>
-          </a>
-          <a
-            class="skill-card"
-            href="https://github.com/howard-einstein/hwrdtop"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="skill-tag">Systems</span>
-            <h3>hwrdtop</h3>
-            <p>
-              A custom desktop/workflow project emphasizing productivity,
-              practical tooling, and system-level experimentation.
-            </p>
-          </a>
-          <a
-            class="skill-card"
-            href="https://github.com/howard-einstein/port-scanner1.01"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="skill-tag">Networking</span>
-            <h3>Port Scanner</h3>
-            <p>
-              Network reconnaissance and port probing utilities for learning
-              service discovery and security fundamentals.
-            </p>
-          </a>
-          <a
-            class="skill-card"
-            href="https://github.com/howard-einstein/voice-assistant"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="skill-tag">AI / Voice</span>
-            <h3>Voice Assistant</h3>
-            <p>
-              Voice-driven automation and assistant workflows designed for
-              conversational control and hands-free interaction.
-            </p>
-          </a>
+
+        <div class="project-slider reveal" aria-label="Project showcase">
+          <div class="slider-viewport">
+            <div class="slider-track">
+              <article class="project-slide active">
+                <div class="slide-visual slide-one" aria-hidden="true"></div>
+                <div class="slide-copy">
+                  <div class="slide-title-wrap">
+                    <span class="slide-badge">Arduino</span>
+                    <h3>Arduino</h3>
+                  </div>
+                  <p>
+                    Embedded experiments, sensor interfaces, and hardware
+                    prototypes built around control systems and automation.
+                  </p>
+                  <a href="https://github.com/howard-einstein/arduino" target="_blank" rel="noreferrer">View project ↗</a>
+                </div>
+              </article>
+
+              <article class="project-slide">
+                <div class="slide-visual slide-two" aria-hidden="true"></div>
+                <div class="slide-copy">
+                  <div class="slide-title-wrap">
+                    <span class="slide-badge">Systems</span>
+                    <h3>hwrdtop</h3>
+                  </div>
+                  <p>
+                    A desktop workflow project focused on practical tooling,
+                    productivity, and experimentation in system design.
+                  </p>
+                  <a href="https://github.com/howard-einstein/hwrdtop" target="_blank" rel="noreferrer">View project ↗</a>
+                </div>
+              </article>
+
+              <article class="project-slide">
+                <div class="slide-visual slide-three" aria-hidden="true"></div>
+                <div class="slide-copy">
+                  <div class="slide-title-wrap">
+                    <span class="slide-badge">Networking</span>
+                    <h3>Port Scanner</h3>
+                  </div>
+                  <p>
+                    Port probing and service discovery utilities for learning
+                    network fundamentals, scanning, and security concepts.
+                  </p>
+                  <a href="https://github.com/howard-einstein/port-scanner1.01" target="_blank" rel="noreferrer">View project ↗</a>
+                </div>
+              </article>
+
+              <article class="project-slide">
+                <div class="slide-visual slide-four" aria-hidden="true"></div>
+                <div class="slide-copy">
+                  <div class="slide-title-wrap">
+                    <span class="slide-badge">AI / Voice</span>
+                    <h3>Voice Assistant</h3>
+                  </div>
+                  <p>
+                    Voice-driven automation and conversational workflows built for
+                    hands-free control and interactive systems.
+                  </p>
+                  <a href="https://github.com/howard-einstein/voice-assistant" target="_blank" rel="noreferrer">View project ↗</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="slider-controls" aria-label="Project navigation">
+            <button class="slider-arrow prev" type="button" aria-label="Previous slide">‹</button>
+            <div class="slider-dots" aria-label="Slide indicators">
+              <button class="dot active" type="button" aria-label="Go to slide 1"></button>
+              <button class="dot" type="button" aria-label="Go to slide 2"></button>
+              <button class="dot" type="button" aria-label="Go to slide 3"></button>
+              <button class="dot" type="button" aria-label="Go to slide 4"></button>
+            </div>
+            <button class="slider-arrow next" type="button" aria-label="Next slide">›</button>
+          </div>
         </div>
       </section>
 
       <section class="connect-section" id="connect">
         <div class="section-heading reveal">
           <p class="eyebrow">// 02 — CONNECTIONS</p>
-          <h2>Find me<br /><span>out there.</span></h2>
         </div>
         <div class="connection-list">
           <a
@@ -301,6 +322,7 @@
           }),
         );
       }
+
       function drawNetwork() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         nodes.forEach((node, index) => {
@@ -323,9 +345,39 @@
         });
         requestAnimationFrame(drawNetwork);
       }
+
+      const slides = Array.from(document.querySelectorAll('.project-slide'));
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      const track = document.querySelector('.slider-track');
+      const prevBtn = document.querySelector('.slider-arrow.prev');
+      const nextBtn = document.querySelector('.slider-arrow.next');
+      let currentIndex = 0;
+
+      function updateSlider(index) {
+        if (!slides.length || !track) return;
+        currentIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle('active', slideIndex === currentIndex);
+        });
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('active', dotIndex === currentIndex);
+        });
+      }
+
+      if (prevBtn && nextBtn && slides.length) {
+        prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
+        nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => updateSlider(index));
+        });
+        setInterval(() => updateSlider(currentIndex + 1), 5000);
+      }
+
       resizeNetwork();
       drawNetwork();
       window.addEventListener("resize", resizeNetwork);
+
       const cards = document.querySelectorAll(".connection-card");
       cards.forEach((card) => {
         card.addEventListener("pointermove", (event) => {
@@ -355,6 +407,7 @@
       }
 
       async function eraseSubtitle() {
+        if (!heroSubtitle) return;
         while (heroSubtitle.textContent.length > 0) {
           heroSubtitle.textContent = heroSubtitle.textContent.slice(0, -1);
           await wait(eraseSpeed);
@@ -362,6 +415,7 @@
       }
 
       async function typeSubtitle(message) {
+        if (!heroSubtitle) return;
         for (const character of message) {
           heroSubtitle.textContent += character;
           await wait(typeSpeed);
@@ -369,6 +423,7 @@
       }
 
       async function rotateHeroSubtitle() {
+        if (!heroSubtitle) return;
         await wait(holdDuration);
         await eraseSubtitle();
         await wait(300);
