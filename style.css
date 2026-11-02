@@ -54,6 +54,13 @@ h1 em { color: var(--coral); font-style: normal; }
 .orbit-one { width: 150px; height: 150px; top: -54px; right: -67px; animation: spin 14s linear infinite; }
 .orbit-two { width: 260px; height: 260px; bottom: -80px; left: -130px; border-color: var(--coral); animation: spin 20s linear infinite reverse; }
 .side-note { position: absolute; right: -78px; bottom: 6px; color: var(--muted); font: 10px 'DM Mono', monospace; line-height: 1.5; text-transform: uppercase; transform: rotate(-90deg); transform-origin: bottom right; }
+.skills-section { padding: 8vw 0 0; display: grid; grid-template-columns: .75fr 1fr; gap: 8vw; border-top: 1px solid var(--line); }
+.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.skill-card { min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; padding: 24px 22px; color: var(--ink); text-decoration: none; border: 1px solid var(--line); background: rgba(255,255,255,0.22); transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.skill-card:hover { background: var(--acid); transform: translateY(-4px); box-shadow: 0 18px 30px rgba(23, 23, 22, 0.08); }
+.skill-tag { color: var(--muted); font: 10px 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+.skill-card h3 { margin: 0; font-size: clamp(24px, 2.5vw, 38px); line-height: 1; letter-spacing: -.06em; }
+.skill-card p { margin: 0; color: rgba(23, 23, 22, 0.8); font-size: 15px; line-height: 1.6; }
 .connect-section { padding: 9vw 0 11vw; display: grid; grid-template-columns: .75fr 1fr; gap: 8vw; border-top: 1px solid var(--line); }
 h2 { font-size: clamp(48px, 6vw, 88px); line-height: .88; letter-spacing: -.07em; margin: 0; }
 h2 span { color: var(--coral); }
@@ -93,6 +100,8 @@ h2 span { color: var(--coral); }
   .portrait-wrap { width: 78%; margin-right: 9%; }
   .portrait-frame { height: 400px; }
   .side-note { right: -72px; }
+  .skills-section { display: block; padding-top: 80px; }
+  .skills-grid { grid-template-columns: 1fr; }
   .connect-section { display: block; padding: 80px 0 100px; }
   .section-heading { margin-bottom: 55px; }
   .connection-card { grid-template-columns: 25px 40px 1fr 20px; gap: 12px; padding: 20px 16px; min-height: 122px; }
