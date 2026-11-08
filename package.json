@@ -1,0 +1,19 @@
+{
+  "name": "me.1",
+  "version": "1.0.0",
+  "description": "A personal website for Howard Einstein — a place to share work, ideas, and projects.",
+  "main": "portrait.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howard-einstein/me.1.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/howard-einstein/me.1/issues"
+  },
+  "homepage": "https://github.com/howard-einstein/me.1#readme"
+}
